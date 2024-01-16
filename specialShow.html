@@ -62,9 +62,80 @@
     <div id="app" v-cloak>
       <h1 class="google-text">好運龍來 | 開運過好年 | 2024</h1>
 
+      <div class="share_bt">
+        <ul>
+          <li>
+            <a
+              class="fb-share-btn"
+              href="https://www.facebook.com/sharer/sharer.php?u=https://acts.setn.com/event/2024CNY/index.html"
+              target="_blank"
+              title="Facebook分享"
+              >
+              <img
+                class="fb-share"
+                src="./imgs/fbshareicon.png"
+                alt="fbshareicon"
+                srcset="./imgs/facebook@2x.png 2x, ./imgs/facebook@3x.png 3x"
+            />
+              <img
+              class="fb-share-1"
+              src="./imgs/fb-share-1.png"
+              alt="fbshareicon"
+              srcset="./imgs/fb-share-1@2x.png 2x, ./imgs/fb-share-1@3x.png 3x"
+              />
+          </a>
+          </li>
+          <li>
+            <a
+              class="line-share-btn"
+              href="https://social-plugins.line.me/lineit/share?url=https://acts.setn.com/event/2024CNY/index.html"
+              target="_blank"
+              title="Line分享"
+              >
+              <img
+              class="line-share"
+                src="./imgs/shareICON.png"
+                alt="shareICON"
+                srcset="./imgs/shareICON@2x.png 2x, ./imgs/shareICON@3x.png 3x"
+            />
+
+            <img
+                class="line-share-1"
+                src="./imgs/line-share-1.png"
+                alt="shareICON"
+                srcset="./imgs/line-share-1@2x.png 2x, ./imgs/line-share-1@3x.png 3x"
+            />
+          
+          </a>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="toTop toTop-wrapper">
+        <img
+        class="toTopBtn"
+        @click="toTop"
+        v-if="!isAtTop"
+        src="./imgs/top.png"
+        alt="fbshareicon"
+        srcset="./imgs/top@2x.png 2x, ./imgs/top@3x.png 3x"
+        />
+  
+        <img
+        class="toTop top-1"
+        @click="toTop"
+        v-if="!isAtTop"
+        src="./imgs/top-1.png"
+        alt="fbshareicon"
+        srcset="./imgs/top-1@2x.png 2x, ./imgs/top-1@3x.png 3x"
+        />
+      </div>
+
+
       <!-- Menu Start -->
       <nav class="menu-block">
-        <a href="https://www.setn.com/m/" target="_blank">
+        <a href="https://www.setn.com" target="_blank">
           <img
             class="logo"
             src="./imgs/SETN.png"
@@ -138,7 +209,7 @@
         </ul>
 
         <div class="mb-login-wrapper" v-if="isMobile">
-          <a href="https://www.setn.com/m/" target="_blank">
+          <a href="https://www.setn.com" target="_blank">
             <img
               class="logo"
               src="./imgs/SETN.png"
@@ -341,8 +412,13 @@
           </div>
 
           <div class="sub-group">
-            <a target="_blank" href="https://www.youtube.com/@94politics">
+            <a
+              class="sub-group-wrapper"
+              target="_blank"
+              href="https://www.youtube.com/@94politics"
+            >
               <img
+                class="SubscribeBall1"
                 src="./imgs/SubscribeBtn01.png"
                 alt="SubscribeBtn01"
                 srcset="
@@ -350,10 +426,29 @@
                   ./imgs/SubscribeBtn01@3x.png 3x
                 "
               />
+
+              <img
+                class="subc-btn"
+                src="./imgs/subc-btn.png"
+                alt="SubscribeBtn01"
+                srcset="./imgs/subc-btn@2x.png 2x, ./imgs/subc-btn@3x.png 3x"
+              />
+
+              <img
+                class="cursor-btn"
+                src="./imgs/cursor.png"
+                alt="SubscribeBtn01"
+                srcset="./imgs/cursor@2x.png 2x, ./imgs/cursor@3x.png 3x"
+              />
             </a>
 
-            <a target="_blank" href="https://www.youtube.com/@onedayfighting">
+            <a
+              class="sub-group-wrapper2"
+              target="_blank"
+              href="https://www.youtube.com/@onedayfighting"
+            >
               <img
+                class="SubscribeBall2"
                 src="./imgs/SubscribeBtn02.png"
                 alt="SubscribeBtn02"
                 srcset="
@@ -361,102 +456,23 @@
                   ./imgs/SubscribeBtn02@3x.png 3x
                 "
               />
+
+              <img
+                class="subc-btn"
+                src="./imgs/subc-btn.png"
+                alt="SubscribeBtn01"
+                srcset="./imgs/subc-btn@2x.png 2x, ./imgs/subc-btn@3x.png 3x"
+              />
+
+              <img
+                class="cursor-btn"
+                src="./imgs/cursor.png"
+                alt="SubscribeBtn01"
+                srcset="./imgs/cursor@2x.png 2x, ./imgs/cursor@3x.png 3x"
+              />
             </a>
           </div>
         </section>
-      </div>
-
-      <!-- totop -->
-      <svg
-        class="toTop"
-        @click="toTop"
-        v-if="!isAtTop"
-        xmlns="http://www.w3.org/2000/svg"
-        width="56"
-        height="56"
-        viewBox="0 0 56 56"
-        fill="none"
-      >
-        <g id="top" clip-path="url(#clip0_508_3867)">
-          <g id="Vector" filter="url(#filter0_i_508_3867)">
-            <path
-              d="M28.2239 56.2241C43.688 56.2241 56.2239 43.6883 56.2239 28.2241C56.2239 12.76 43.688 0.224121 28.2239 0.224121C12.7597 0.224121 0.223877 12.76 0.223877 28.2241C0.223877 43.6883 12.7597 56.2241 28.2239 56.2241Z"
-              fill="#BA563F"
-            />
-          </g>
-          <path
-            id="Vector_2"
-            d="M21.9653 42V27H14.4289C14.3442 27.0001 14.2614 26.975 14.1909 26.9281C14.1205 26.8811 14.0655 26.8144 14.0329 26.7362C14.0004 26.658 13.9917 26.5719 14.008 26.4888C14.0244 26.4057 14.0649 26.3293 14.1246 26.2693L28.3939 12L42.6632 26.2693C42.7229 26.3293 42.7635 26.4057 42.7798 26.4888C42.7961 26.5719 42.7874 26.658 42.7549 26.7362C42.7223 26.8144 42.6674 26.8811 42.5969 26.9281C42.5264 26.975 42.4436 27.0001 42.3589 27H34.8225V42"
-            stroke="white"
-            stroke-width="3"
-          />
-        </g>
-        <defs>
-          <filter
-            id="filter0_i_508_3867"
-            x="0.223877"
-            y="0.224121"
-            width="56"
-            height="56"
-            filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
-          >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feColorMatrix
-              in="SourceAlpha"
-              type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-              result="hardAlpha"
-            />
-            <feOffset dy="-8" />
-            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-            <feColorMatrix
-              type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
-            />
-            <feBlend
-              mode="normal"
-              in2="shape"
-              result="effect1_innerShadow_508_3867"
-            />
-          </filter>
-          <clipPath id="clip0_508_3867">
-            <rect width="56" height="56" fill="white" />
-          </clipPath>
-        </defs>
-      </svg>
-
-      <div class="share_bt">
-        <ul>
-          <li>
-            <a
-              href="https://www.facebook.com/sharer/sharer.php?u=https://acts.setn.com/event/2024CNY/index.html"
-              target="_blank"
-              title="Facebook分享"
-              ><img
-                src="./imgs/fbshareicon.png"
-                alt="fbshareicon"
-                srcset="./imgs/facebook@2x.png 2x, ./imgs/facebook@3x.png 3x"
-            /></a>
-          </li>
-          <li>
-            <a
-              href="https://social-plugins.line.me/lineit/share?url=https://acts.setn.com/event/2024CNY/index.html"
-              target="_blank"
-              title="Line分享"
-              ><img
-                src="./imgs/shareICON.png"
-                alt="shareICON"
-                srcset="./imgs/shareICON@2x.png 2x, ./imgs/shareICON@3x.png 3x"
-            /></a>
-          </li>
-        </ul>
       </div>
 
       <!-- footer Start -->

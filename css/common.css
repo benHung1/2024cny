@@ -36,7 +36,7 @@ footer .copyrightbox {
   text-align: center;
   color: #fff;
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 25.5px;
   letter-spacing: 0.34px;
   padding: 6px 0;
@@ -64,7 +64,7 @@ footer .copyrightbox {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  font-weight: bold;
+  font-weight: normal;
   color: black;
   gap: 8px;
 }
@@ -76,6 +76,8 @@ footer .copyrightbox {
   color: #3c3a36;
   line-height: 29px;
   display: block;
+  transition: all ease-in-out .3s;
+
 }
 
 .menu-area > li:last-child > a {
@@ -83,6 +85,7 @@ footer .copyrightbox {
   align-items: center;
   gap: 4px;
   color: inherit;
+  transition: all ease-in-out 0s;
 }
 
 .userLogo {
@@ -94,19 +97,6 @@ footer .copyrightbox {
   background-color: #f0d7c0;
 }
 
-.menu-area li:last-child a:hover {
-  color: #ba563f;
-  background: transparent;
-}
-
-.menu-area a:hover {
-  background-color: #f0d7c0;
-}
-
-.mb-menu-area li:hover {
-  background-color: #f0d7c0;
-  border-radius: 100%;
-}
 
 .mb-active {
   background-color: #f0d7c0;
@@ -137,41 +127,11 @@ footer .copyrightbox {
   transition: opacity 0.3s ease; /* 调整过渡时间和缓动效果 */
 }
 
-.web-login-btn:hover .initial-svg {
-  display: none;
-}
-
-.web-login-btn:hover .hover-svg {
-  display: flex;
-}
-
-.web-login-btn:hover .logout-hover-svg {
-  display: flex;
-}
-
-.web-login-btn:hover .logout-icon {
-  display: none;
-}
-
 .mb-hover-svg {
   display: none;
 }
 
-.mb-aTag:hover > .mb-hover-svg {
-  display: block;
-}
 
-.mb-aTag:hover > .mb-login-icon {
-  display: none;
-}
-
-.mb-aTag:hover > .logout-hover-svg {
-  display: block;
-}
-
-.mb-aTag:hover > .mb-logout-icon {
-  display: none;
-}
 
 .mb-login-wrapper {
   display: flex;
@@ -261,7 +221,7 @@ footer .copyrightbox {
   margin: 22px 0;
   color: #3c3a36;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 18px;
   line-height: 32px;
   text-align: center;
@@ -296,7 +256,85 @@ footer .copyrightbox {
   margin: 15px 0 0 0;
 }
 
+.fb-share-1, .line-share-1, .top-1 {
+  display: none;
+}
+
+
 @media screen and (min-width: 768px) {
+
+  .fb-share-btn:hover > .fb-share-1 {
+    display: block;
+  }
+
+  .fb-share-btn:hover > .fb-share {
+    display: none;
+  }
+
+  .line-share-btn:hover > .line-share-1 {
+    display: block;
+  }
+
+  .toTop-wrapper:hover > .top-1 {
+    display: block;
+  }
+
+  .toTop-wrapper:hover > .toTopBtn  {
+    display: none;
+  }
+
+  .line-share-btn:hover > .line-share {
+    display: none;
+  }
+
+  .mb-aTag:hover > .mb-hover-svg {
+    display: block;
+  }
+  
+  .mb-aTag:hover > .mb-login-icon {
+    display: none;
+  }
+  
+  .mb-aTag:hover > .logout-hover-svg {
+    display: block;
+  }
+  
+  .mb-aTag:hover > .mb-logout-icon {
+    display: none;
+  }
+  
+  .menu-area li:last-child a:hover {
+    color: #ba563f;
+    background: transparent;
+  }
+  
+  .menu-area a:hover {
+    background-color: #f0d7c0;
+  }
+  
+  .mb-menu-area li:hover {
+    background-color: #f0d7c0;
+    border-radius: 100%;
+  }
+  
+  
+  .web-login-btn:hover .initial-svg {
+    display: none;
+  }
+  
+  .web-login-btn:hover .hover-svg {
+    display: flex;
+  }
+  
+  .web-login-btn:hover .logout-hover-svg {
+    display: flex;
+  }
+  
+  .web-login-btn:hover .logout-icon {
+    display: none;
+  }
+
+
   .menu-block {
     padding: 16px;
   }

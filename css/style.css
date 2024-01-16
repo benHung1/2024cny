@@ -36,6 +36,7 @@
   border-radius: 24px;
   position: relative;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  transition: transform ease-in-out 0.3s;
 }
 
 .games-img {
@@ -52,7 +53,7 @@
 .games-wrapper > span {
   font-size: 24px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 40.8px;
   background-color: #ba563f;
   padding: 10px 0;
@@ -96,11 +97,27 @@
 }
 
 .app-dowload-wrapper > img {
-  max-width: 902px;
+  max-width: 450px;
 }
 
 .app-dowload-wrapper > img:last-child {
   margin-bottom: 60px;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 24px;
+  backdrop-filter: blur(4px);
+}
+
+.app-group {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.app-group > img {
+  max-width: 435px;
+  transition: all ease-in-out 0.3s;
 }
 
 .event-gift-container {
@@ -109,7 +126,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: center top / auto repeat-y url(../imgs/bgcard.png);
+  background: center top / auto repeat-y url(../imgs/bgcard.png) #fffbee;
   max-width: 1366px;
   position: relative;
   text-align: center;
@@ -130,7 +147,7 @@
   margin-top: 90px;
   font-size: 22px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 170%;
   color: #3c3a36;
   margin-bottom: 40px;
@@ -139,7 +156,7 @@
 .event-gift-container > h4 > span {
   font-size: 26px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 130%;
   color: #ba563f;
 }
@@ -160,7 +177,7 @@
   color: #ffffff;
   width: 100%;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 500;
   background: #ba563f;
   border-top-right-radius: 24px;
   border-top-left-radius: 24px;
@@ -174,7 +191,7 @@
   width: 100%;
   font-size: 22px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 170%;
   margin: 10px 0;
   display: block;
@@ -196,7 +213,7 @@
   position: relative;
 
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 170%; /* 37.4px */
 
   font-size: 20px;
@@ -209,7 +226,7 @@
   width: 72px;
   padding: 11px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 150%; /* 33px */
   color: #ba563f;
   position: absolute;
@@ -302,7 +319,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 170%; /* 40.8px */
 }
 
@@ -498,6 +515,16 @@ footer {
 
   .container > .notice > ol > li {
     font-size: 22px;
+  }
+
+  .games-wrapper:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+  }
+
+  .app-group > img:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
   }
 }
 

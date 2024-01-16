@@ -91,17 +91,41 @@ let app = {
       redPacketApiUrl: "https://event.setn.com/api/campaign/redPacket",
       spinToWinApiUrl: "https://event.setn.com/api/campaign/SpinToWin",
       newsApiUrl: "https://event.setn.com/api/campaign/news/project/10268",
-      fortuneSticksImg: "../imgs/doorfortunestickbucket.png",
+      fortuneSticksImg: "./imgs/doorfortunestickbucket.png",
       fortuneSticksImgItem: "",
       fortuneSticksList: [
-        { src: "../imgs/Property1=1.png" },
-        { src: "../imgs/Property1=2.png" },
-        { src: "../imgs/Property1=3.png" },
-        { src: "../imgs/Property1=4.png" },
-        { src: "../imgs/Property1=5.png" },
-        { src: "../imgs/Property1=6.png" },
-        { src: "../imgs/Property1=7.png" },
-        { src: "../imgs/Property1=8.png" },
+        {
+          src: "./imgs/Property1=1.png",
+          name: "./imgs/Property1=1",
+        },
+        {
+          src: "./imgs/Property1=2.png",
+          name: "./imgs/Property1=2",
+        },
+        {
+          src: "./imgs/Property1=3.png",
+          name: "./imgs/Property1=3",
+        },
+        {
+          src: "./imgs/Property1=4.png",
+          name: "./imgs/Property1=4",
+        },
+        {
+          src: "./imgs/Property1=5.png",
+          name: "./imgs/Property1=5",
+        },
+        {
+          src: "./imgs/Property1=6.png",
+          name: "./imgs/Property1=6",
+        },
+        {
+          src: "./imgs/Property1=7.png",
+          name: "./imgs/Property1=7",
+        },
+        {
+          src: "./imgs/Property1=8.png",
+          name: "./imgs/Property1=8",
+        },
       ],
     };
   },

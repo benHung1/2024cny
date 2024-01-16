@@ -23,10 +23,12 @@
   padding: 4px 32px;
 
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 170%; /* 37.4px */
 
   cursor: pointer;
+
+  transition: all ease-in-out 0.3s;
 }
 
 .ad-text {
@@ -34,7 +36,7 @@
   text-align: center;
   font-size: 16px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 170%; /* 37.4px */
   display: flex;
   flex-direction: column;
@@ -49,7 +51,7 @@
 
 .ad-text > span {
   color: #f6ef41;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 150%;
   font-size: 18px;
 }
@@ -64,10 +66,11 @@
   background: #ffe6bc;
   box-shadow: 0px -6px 0px 0px rgba(0, 0, 0, 0.15) inset;
   color: #ba563f;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 170%; /* 37.4px */
   margin: 20px 0;
   cursor: pointer;
+  transition: all ease-in-out 0.3s;
 }
 
 .btn-group > .again-btn {
@@ -96,10 +99,11 @@
   padding: 4px 32px 8px 32px;
   font-size: 20px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 170%; /* 54.4px */
   color: #fff;
   cursor: pointer;
+  transition: all ease-in-out 0.3s;
 }
 .game_wrap .start_time {
   position: absolute;
@@ -186,7 +190,7 @@
   flex-wrap: nowrap;
   justify-content: space-evenly;
   position: absolute;
-  top: -30%;
+  top: -40%;
 }
 .game_wrap #rain_list .rain_img {
   width: 10%;
@@ -200,7 +204,7 @@
   background-image: url("../imgs/redpacket1.png");
   background-size: 100%;
   height: 0;
-  padding-top: 14.4%;
+  padding-top: 17.87%;
   left: 0;
   cursor: grab;
 }
@@ -225,7 +229,7 @@
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 150%; /* 33px */
 }
 
@@ -365,7 +369,11 @@
 
 .dontBtn {
   margin-bottom: 94px;
+  transition: all ease-in-out .3s;
 }
+
+
+
 
 .game_wrap .game_tool_bar .tool_bar_left > div > span {
   padding: 4px 0px;
@@ -374,10 +382,10 @@
   border-radius: 8px;
   border: 2px solid #ffb96b;
   background: #ffe2c1;
-  box-shadow: 0px 0px 2px 4px rgba(0, 0, 0, 0.15) inset;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.15) inset;
   color: #ba563f;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 170%; /* 37.4px */
 }
 
@@ -386,7 +394,7 @@
   color: #595757;
   font-size: 18px;
   line-height: 170%; /* 30.6px */
-  font-weight: bold;
+  font-weight: normal;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -432,6 +440,19 @@
     display: flex;
   }
 
+  .dontBtn:hover {
+    background: #FFD482;
+  }
+  
+
+  .game_wrap .again-btn {
+    padding: 4px 32px 8px 32px !important;
+  }
+
+  .game_wrap .again-btn:hover {
+    background: #ffd482 !important;
+  }
+
   .game_wrap .game_tool_bar .game_score,
   .game_wrap .game_tool_bar .game_time {
     font-size: 22px;
@@ -448,6 +469,10 @@
   .game_wrap .game_btn {
     padding: 4px 40px;
     font-size: 22px;
+  }
+
+  .game_wrap .game_btn:hover {
+    background: #c76d58;
   }
 
   .game_wrap {
@@ -484,6 +509,10 @@
   .game_wrap .game_start {
     padding: 4px 44px 8px 44px;
     font-size: 32px;
+  }
+
+  .game_wrap .game_start:hover {
+    background: #c76d58;
   }
 
   .h-100 {

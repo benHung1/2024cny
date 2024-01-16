@@ -25,20 +25,65 @@
 .sub-group {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 54px;
   margin-bottom: 60px;
 }
 
+.sub-group-wrapper2,
+.sub-group-wrapper {
+  position: relative;
+}
+
+.subc-btn {
+  position: absolute;
+  bottom: -12px;
+  right: -24px;
+  max-width: 86px;
+  transition: all ease-in-out 0.3s;
+}
+
+.cursor-btn {
+  position: absolute;
+  max-width: 20px;
+  right: 10px;
+  bottom: -26px;
+}
+
+.SubscribeBall2,
+.SubscribeBall1 {
+  max-width: 126px;
+}
+
 @media screen and (min-width: 768px) {
+  .SubscribeBall2,
+  .SubscribeBall1 {
+    max-width: 176px;
+  }
+
+  .subc-btn {
+    max-width: 112px;
+    bottom: -24px;
+    right: -24px;
+  }
+
+  .cursor-btn {
+    max-width: 28px;
+    right: 15px;
+    bottom: -42px;
+  }
   .video-container {
     margin: 50px 0 70px 0;
   }
 
   .sub-group {
-    gap: 60px;
+    gap: 84px;
   }
 
-  .sub-group > a > img {
-    max-width: 200px;
+  .sub-group-wrapper:hover > .subc-btn {
+    transform: translateY(-10px);
+  }
+
+  .sub-group-wrapper2:hover > .subc-btn {
+    transform: translateY(-10px);
   }
 }
