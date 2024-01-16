@@ -691,12 +691,11 @@
   }
 
   .turn {
-    top: 38%;
+    top: 40%;
   }
 
   .turn-btn {
-    max-width: 116px;
-    cursor: pointer;
+    max-width: 90px;
   }
 
   .mt-24 {
@@ -731,9 +730,23 @@
     height: 69%;
     align-items: flex-start;
   }
+
+  .arrow img {
+    max-width: 33px;
+  }
 }
 
 @media screen and (min-width: 768px) {
+
+  .turn {
+    top: 38%;
+  }
+
+  .turn-btn {
+    max-width: 116px;
+  }
+
+
   .arrow img {
     max-width: 42px;
   }

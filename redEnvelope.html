@@ -449,7 +449,7 @@
 
         <div class="game_wrap">
           <div class="game_area">
-            <div class="game_box" v-if="isShowGameBox" ref="gameBox">
+            <div class="game_box" v-if="isShowGameBox" ref="gameBox" :class="{ 'hide-overlay': !showOverlay }">
               <!-- <div class="game-box-bg"></div> -->
               <!-- <div class="top-bg"></div> -->
 

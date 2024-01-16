@@ -71,6 +71,7 @@ let app = {
       redPacketQuota: 0,
       luckyWheelQuota: 0,
       index: null,
+      showOverlay: true,
       isLogin: false,
       isMobile: false,
       isShowGameBox: true,
@@ -593,7 +594,9 @@ let app = {
 
       try {
         if (!this.isRaining) {
+
           const res = await axios.get(api);
+
           this.$refs.popUp.style.display = "flex";
 
           this.$refs.textWrapper.scrollIntoView({ behavior: "smooth" });
@@ -670,11 +673,12 @@ let app = {
       const isEnougthQuota = await this.getRedPacketQuota();
 
       // console.log(isEnougthQuota);
-      if (isEnougthQuota) {
+      if (!isEnougthQuota) {
         this.isShowGameBox = true;
         this.isShowStartTime = true;
         this.isStartedRedPacket = true;
         this.isRaining = true;
+        this.showOverlay = false;
 
         this.$refs.gameBox.style.overflow = "hidden";
 
@@ -732,6 +736,7 @@ let app = {
       this.isGameOver = true;
       this.isShowRainList = false;
       this.isRaining = false;
+      this.showOverlay = true;
       this.$refs.popUp.style.display = "flex";
       this.$refs.textWrapper.scrollIntoView({ behavior: "smooth" });
 
