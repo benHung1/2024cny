@@ -1,0 +1,44 @@
+.video-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin: 20px 0 40px 0;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sub-group {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+@media screen and (min-width: 768px) {
+  .video-container {
+    margin: 50px 0 70px 0;
+  }
+
+  .sub-group {
+    gap: 60px;
+  }
+
+  .sub-group > a > img {
+    max-width: 200px;
+  }
+}

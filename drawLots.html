@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>2024 CNY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="..." />
+    <meta name="description" content="..." />
+    <meta name="Keywords" content="..." />
+    <meta property="og:title" content="..." />
+    <meta property="og:description" content="..." />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta property="og:image" content="..." />
+    <meta property="og:url" content="..." />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/drawLots.css" />
+
+    <script src="./js/vue.min.js"></script>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- <script>
+      (function(d) {
+        var config = {
+          kitId: 'pqt2nzb',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script> -->
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NZ3723M");
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Begin comScore Tag -->
+    <script>
+      var _comscore = _comscore || [];
+      _comscore.push({ c1: "2", c2: "20617561" });
+      (function () {
+        var s = document.createElement("script"),
+          el = document.getElementsByTagName("script")[0];
+        s.async = true;
+        s.src =
+          (document.location.protocol == "https:" ? "https://sb" : "http://b") +
+          ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+      })();
+    </script>
+    <!-- End comScore Tag -->
+  </head>
+
+  <body>
+    <div id="app" v-cloak>
+      <h1 class="google-text">好運龍來 | 開運過好年 | 2024</h1>
+
+      <!-- Menu Start -->
+      <nav class="menu-block">
+        <a href="https://www.setn.com/m/" target="_blank">
+          <img
+            class="logo"
+            src="./imgs/SETN.png"
+            alt="logo"
+            srcset="./imgs/SETN@2x.png 2x, ./imgs/SETN@3x.png 3x"
+            v-if="!isMobile"
+          />
+        </a>
+        <ul class="menu-area" v-if="!isMobile">
+          <li>
+            <a href="index.html">活動首頁</a>
+          </li>
+          <li>
+            <a href="spinToWin.html">幸運大轉盤</a>
+          </li>
+          <li>
+            <a href="redEnvelope.html">好運從天降</a>
+          </li>
+          <li><a class="active" href="drawLots.html">財運滾滾來</a></li>
+          <li><a href="specialShow.html">過年特別節目</a></li>
+          <li><a href="festival.html">春節連假攻略</a></li>
+          <li class="loginWrapper">
+            <a @click="login" href="#" class="web-login-btn">
+              <img
+                src="./imgs/avatar.png"
+                alt="avatar"
+                v-if="!isLogin"
+                class="initial-svg"
+                srcset="./imgs/avatar@2x.png 2x, ./imgs/avatar@3x.png 3x"
+              />
+              <img
+                src="./imgs/avatarlogout.png"
+                alt="avatar"
+                srcset="
+                  ./imgs/avatarlogout@2x.png 2x,
+                  ./imgs/avatarlogout@3x.png 3x
+                "
+                class="logout-icon"
+                v-else
+              />
+
+              <!-- hover -->
+
+              <img
+                src="./imgs/avatarhover.png"
+                alt=""
+                class="hover-svg"
+                v-if="!isLogin"
+                srcset="
+                  ./imgs/avatarhover@2x.png 2x,
+                  ./imgs/avatarhover@3x.png 3x
+                "
+              />
+
+              <!-- hover-logout -->
+
+              <img
+                src="./imgs/avatarlogout2.png"
+                alt=""
+                srcset="
+                  ./imgs/avatarlogout2@2x.png 2x,
+                  ./imgs/avatarlogout2@3x.png 3x
+                "
+                class="logout-hover-svg"
+                v-else
+              />
+
+              {{isLogin ? '登出': '登入'}}
+            </a>
+          </li>
+        </ul>
+
+        <div class="mb-login-wrapper" v-if="isMobile">
+          <a href="https://www.setn.com/m/" target="_blank">
+            <img
+              class="logo"
+              src="./imgs/SETN.png"
+              alt="logo"
+              srcset="./imgs/SETN@2x.png 2x, ./imgs/SETN@3x.png 3x"
+            />
+          </a>
+
+          <a @click="login" href="#" class="mb-aTag">
+            <img
+              src="./imgs/avatar.png"
+              alt="avatar"
+              v-if="!isLogin"
+              class="mb-login-icon"
+              srcset="./imgs/avatar@2x.png 2x, ./imgs/avatar@3x.png 3x"
+            />
+            <img
+              src="./imgs/avatarlogout.png"
+              alt="avatar"
+              srcset="
+                ./imgs/avatarlogout@2x.png 2x,
+                ./imgs/avatarlogout@3x.png 3x
+              "
+              class="mb-logout-icon"
+              v-else
+            />
+
+            <!-- hover -->
+
+            <img
+              src="./imgs/avatarhover.png"
+              alt=""
+              class="mb-hover-svg"
+              v-if="!isLogin"
+              srcset="
+                ./imgs/avatarhover@2x.png 2x,
+                ./imgs/avatarhover@3x.png 3x
+              "
+            />
+
+            <!-- hover-logout -->
+
+            <img
+              src="./imgs/avatarlogout2.png"
+              alt=""
+              srcset="
+                ./imgs/avatarlogout2@2x.png 2x,
+                ./imgs/avatarlogout2@3x.png 3x
+              "
+              class="logout-hover-svg"
+              v-else
+            />
+          </a>
+        </div>
+        <ul class="mb-menu-area" v-if="isMobile">
+          <li>
+            <a href="index.html">
+              <img
+                class="index-icon"
+                src="./imgs/home.png"
+                alt="index-icon"
+                srcset="./imgs/home@2x.png 2x, ./imgs/home@3x.png 3x"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="spinToWin.html">
+              <img
+                class="spinToWin-icon"
+                src="./imgs/lucky-wheel.png"
+                alt="spinToWin-icon"
+                srcset="
+                  ./imgs/lucky-wheel@2x.png 2x,
+                  ./imgs/lucky-wheel@3x.png 3x
+                "
+              />
+            </a>
+          </li>
+          <li>
+            <a href="redEnvelope.html">
+              <img
+                class="redEnvelope"
+                src="./imgs/red-packet.png"
+                alt="redEnvelope"
+                srcset="
+                  ./imgs/red-packet@2x.png 2x,
+                  ./imgs/red-packet@3x.png 3x
+                "
+              />
+            </a>
+          </li>
+          <li>
+            <a href="drawLots.html">
+              <img
+                class="drawLots mb-active"
+                src="./imgs/stick-bucket.png"
+                alt="drawLots"
+                srcset="
+                  ./imgs/stick-bucket@2x.png 2x,
+                  ./imgs/stick-bucket@3x.png 3x
+                "
+              />
+            </a>
+          </li>
+          <li>
+            <a href="specialShow.html">
+              <img
+                class="player"
+                src="./imgs/player.png"
+                alt="player"
+                srcset="./imgs/player@2x.png 2x, ./imgs/player@3x.png 3x"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="festival.html">
+              <img
+                class="idea"
+                src="./imgs/idea.png"
+                alt="idea"
+                srcset="./imgs/idea@2x.png 2x, ./imgs/idea@3x.png 3x"
+              />
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Menu End -->
+
+      <!-- 主內容 Start -->
+      <div class="container">
+        <section class="dragonWapper">
+          <img
+            src="./imgs/bg2-lanternflower.png"
+            srcset="
+              ./imgs/bg2-lanternflower@2x.png 2x,
+              ./imgs/bg2-lanternflower@3x.png 3x
+            "
+            alt="bg-2"
+            class="bg-2"
+            v-if="!isMobile"
+          />
+          <!-- 煙火 -->
+          <div class="bg-3" v-if="!isMobile">
+            <!-- 這裡的圖片有動畫的話要換掉 -->
+
+            <div class="bg-3-1">
+              <img
+                src="./imgs/fireworks1.png"
+                srcset="
+                  ./imgs/fireworks1@2x.png 2x,
+                  ./imgs/fireworks1@3x.png 3x
+                "
+                alt="bg-3-1"
+              />
+            </div>
+
+            <div class="bg-3-2">
+              <img
+                src="./imgs/fireworks2.png"
+                srcset="
+                  ./imgs/fireworks2@2x.png 2x,
+                  ./imgs/fireworks2@3x.png 3x
+                "
+                alt="bg-3-2"
+              />
+            </div>
+
+            <div class="bg-3-3">
+              <img
+                src="./imgs/fireworks3.png"
+                srcset="
+                  ./imgs/fireworks3@2x.png 2x,
+                  ./imgs/fireworks3@3x.png 3x
+                "
+                alt="bg-3-3"
+              />
+            </div>
+          </div>
+
+          <img
+            src="./imgs/drawdragon.png"
+            srcset="./imgs/drawdragon@2x.png 2x, ./imgs/drawdragon@3x.png 3x"
+            alt="dragon"
+            class="dragon"
+          />
+
+          <div class="textWrapper">
+            登入三立會員後，<br />
+            <span>按下「抽」</span>
+            晃動龍年財運籤筒，<br />
+            <span>每天可抽1次</span>
+            財運籤！
+          </div>
+        </section>
+
+        <!-- 抽籤 -->
+        <div class="fortune_sticks_wrap">
+          <img
+            src="./imgs/doorbg.png"
+            alt="door"
+            srcset="./imgs/doorbg@2x.png 2x, ./imgs/doorbg@3x.png 3x"
+            class="doorbg"
+          />
+          <div class="fortune_sticks_area">
+            <div
+              class="fortune_sticks_start"
+              @click="handleClickToday()"
+              v-if="!showFortuneStickResult && isFortuneSticksStart || !isLogin"
+            >
+              <img
+                :class="['fortune_sticks_img', { active: isFortuneSticksImgMovie }]"
+                :src="fortuneSticksImg"
+                alt=""
+                srcset="
+                  ./imgs/doorfortunestickbucket@2x.png 2x,
+                  ./imgs/doorfortunestickbucket@3x.png 3x
+                "
+              />
+            </div>
+
+            <div class="over-lay" v-else>
+              <!-- 詩籤區塊 -->
+              <ul class="fortune_sticks_list">
+                <li
+                  v-for="(item, index) in fortuneSticksList"
+                  :key="item.src"
+                  v-if="fortuneSticksImgItem == index+1"
+                >
+                  <img :src="item.src" alt="" />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 新聞列表 -->
+
+        <section class="newsLists" v-if="isLogin && isClickedBuckets">
+          <p class="news-title">快來看最新時事！賺錢機會在等你～</p>
+
+          <img
+            class="down-arrow"
+            src="./imgs/down-arrows.png"
+            alt="down-arrow"
+            srcset="./imgs/down-arrows@2x.png 2x, ./imgs/down-arrows@3x.png 3x"
+          />
+          <div class="newsListsWrapper">
+            <ul>
+              <li v-for="(item, index) in newsLists" ::key="index">
+                <a
+                  target="_blank"
+                  href="https://www.setn.com/News.aspx?NewsID=1412304"
+                >
+                  <img :src="item.image" alt="news1" />
+                  <p>{{item.title}}</p>
+                </a>
+              </li>
+            </ul>
+
+            <a
+              class="more-btn"
+              href="https://www.setn.com/project.aspx?ProjectID=10268"
+              target="_blank"
+            >
+              點我看更多
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="15"
+                viewBox="0 0 14 15"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_748_4885)">
+                  <path
+                    d="M7 13.5L13 7.5L7 1.5"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_748_4885">
+                    <rect
+                      width="14"
+                      height="14"
+                      fill="white"
+                      transform="translate(0 0.5)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <!-- totop -->
+      <svg
+        class="toTop"
+        @click="toTop"
+        v-if="!isAtTop"
+        xmlns="http://www.w3.org/2000/svg"
+        width="56"
+        height="56"
+        viewBox="0 0 56 56"
+        fill="none"
+      >
+        <g id="top" clip-path="url(#clip0_508_3867)">
+          <g id="Vector" filter="url(#filter0_i_508_3867)">
+            <path
+              d="M28.2239 56.2241C43.688 56.2241 56.2239 43.6883 56.2239 28.2241C56.2239 12.76 43.688 0.224121 28.2239 0.224121C12.7597 0.224121 0.223877 12.76 0.223877 28.2241C0.223877 43.6883 12.7597 56.2241 28.2239 56.2241Z"
+              fill="#BA563F"
+            />
+          </g>
+          <path
+            id="Vector_2"
+            d="M21.9653 42V27H14.4289C14.3442 27.0001 14.2614 26.975 14.1909 26.9281C14.1205 26.8811 14.0655 26.8144 14.0329 26.7362C14.0004 26.658 13.9917 26.5719 14.008 26.4888C14.0244 26.4057 14.0649 26.3293 14.1246 26.2693L28.3939 12L42.6632 26.2693C42.7229 26.3293 42.7635 26.4057 42.7798 26.4888C42.7961 26.5719 42.7874 26.658 42.7549 26.7362C42.7223 26.8144 42.6674 26.8811 42.5969 26.9281C42.5264 26.975 42.4436 27.0001 42.3589 27H34.8225V42"
+            stroke="white"
+            stroke-width="3"
+          />
+        </g>
+        <defs>
+          <filter
+            id="filter0_i_508_3867"
+            x="0.223877"
+            y="0.224121"
+            width="56"
+            height="56"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feColorMatrix
+              in="SourceAlpha"
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha"
+            />
+            <feOffset dy="-8" />
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+            />
+            <feBlend
+              mode="normal"
+              in2="shape"
+              result="effect1_innerShadow_508_3867"
+            />
+          </filter>
+          <clipPath id="clip0_508_3867">
+            <rect width="56" height="56" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <div class="share_bt">
+        <ul>
+          <li>
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u=https://acts.setn.com/event/2024CNY/index.html"
+              target="_blank"
+              title="Facebook分享"
+              ><img
+                src="./imgs/fbshareicon.png"
+                alt="fbshareicon"
+                srcset="./imgs/facebook@2x.png 2x, ./imgs/facebook@3x.png 3x"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://social-plugins.line.me/lineit/share?url=https://acts.setn.com/event/2024CNY/index.html"
+              target="_blank"
+              title="Line分享"
+              ><img
+                src="./imgs/shareICON.png"
+                alt="shareICON"
+                srcset="./imgs/shareICON@2x.png 2x, ./imgs/shareICON@3x.png 3x"
+            /></a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- footer Start -->
+      <footer>
+        <div class="copyrightbox">
+          ©2024 Sanlih E-Television All Rights Reserved
+          <p class="copyright">版權所有 盜用必究</p>
+        </div>
+      </footer>
+      <!-- footer End -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="./js/main.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
