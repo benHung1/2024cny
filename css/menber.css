@@ -18,13 +18,12 @@
 
 .record-btn,
 .outter-record-btn {
-  transition: all ease-in-out .3s;
+  transition: all ease-in-out 0.3s;
 }
 
 .prizeName {
-  color: #F6EF41;
+  color: #f6ef41;
 }
-
 
 .luckywheel {
   z-index: 5;
@@ -162,6 +161,7 @@
   justify-content: center;
   align-items: flex-start;
   display: none;
+  padding: 0 !important;
 }
 
 .pop-up-container {
@@ -234,6 +234,10 @@
   padding: 0 1rem;
 }
 
+.ul-text > li {
+  font-size: 18px;
+}
+
 .pop-up-wrapper-record {
   display: none;
 }
@@ -278,13 +282,13 @@
   font-size: 18px;
 }
 
-.pop-up-record-wrapper > ul > li > span {
-  margin-left: 25px;
+.ul-text > li {
+  display: flex;
+  gap: 25px;
 }
 
-.pop-up-wrapper > .ad-wrapper {
-  width: 100%;
-  height: 100%;
+.pop-up-record-wrapper > ul > li > span {
+  text-align: left;
 }
 
 .pop-up-wrapper > button {
@@ -324,7 +328,6 @@
   transition: all 0.3s;
 }
 
-
 .login span {
   font-size: 20px;
 }
@@ -332,8 +335,6 @@
 .space-login {
   margin-top: 5px;
 }
-
-
 
 .menber-record ul {
   background: rgba(63, 32, 6, 0.6);
@@ -600,8 +601,6 @@
   margin-bottom: 30px;
 }
 
-
-
 .Abox-content li.read::after {
   content: url(../images/check.png);
   width: 39px;
@@ -737,6 +736,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .ul-text > li {
+    font-size: 22px;
+  }
 
   .turn {
     top: 38%;
@@ -746,19 +748,17 @@
     max-width: 116px;
   }
 
-
   .arrow img {
     max-width: 42px;
   }
 
   .record-btn:hover {
-    background: #FFD482;
+    background: #ffd482;
   }
-  
+
   .outter-record-btn:hover {
-    background: #C76D58;
+    background: #c76d58;
   }
-  
 
   .game-block {
     margin: 40px 0 60px 0;

@@ -60,6 +60,7 @@ let app = {
       redPacketArr: [],
       newsLists: [],
       newsLimts: 6,
+      newsIds: 268,
       clickNum: 0,
       stopTime: 30,
       repeTime: 30,
@@ -71,7 +72,7 @@ let app = {
       redPacketQuota: 0,
       luckyWheelQuota: 0,
       index: null,
-      showOverlay: true,
+      isShowOverlay: true,
       isLogin: false,
       isMobile: false,
       isShowGameBox: true,
@@ -88,7 +89,7 @@ let app = {
       isFortuneSticksAgainBtn: false, // 再抽一次按鈕
       prizeName: "",
       isAtTop: true,
-      eventCode: "2024CNY",
+      eventCode: "2024cny",
       redPacketApiUrl: "https://event.setn.com/api/campaign/redPacket",
       spinToWinApiUrl: "https://event.setn.com/api/campaign/SpinToWin",
       newsApiUrl: "https://event.setn.com/api/campaign/news/project/10268",
@@ -145,49 +146,18 @@ let app = {
 
     login() {
       // 1. 成功存入cookie後取出 V
-
       // 2. 塞到localStorage裡面 V
-
       // 3. 點擊籤筒的時候 先 取儲存的userId & handleClickToday 看他今天點擊沒
-
-      // 4. 若已經點過，直接顯示他抽到的籤，反之則顯示籤筒
-
+      // 4. 若已經點過，直接顯示他抽到的籤，反之則顯示籤筒z
       // 抽籤筒、玩遊戲的時候會用到
-
       document.cookie = "userId=ab584947-2318-4594-ab93-22e57e2f89f9";
-
       this.userId = document.cookie.match(/userId=([^;]+)/)[1];
-
       localStorage.setItem("userId", this.userId);
-
       this.isLogin = !this.isLogin;
-
       this.checkFortuneStickStatus();
-
       if (!this.isLogin) localStorage.removeItem("userId");
-
       console.log(this.userId, this.isLogin);
     },
-
-    // login2() {
-    //   document.cookie = "userId=ab584947-2318-4594-ab93-22e57e2f89f9";
-
-    //   this.userId = document.cookie.match(/userId=([^;]+)/)[1];
-
-    //   localStorage.setItem("userId", this.userId);
-
-    //   console.log(this.userId);
-    // },
-
-    // login3() {
-    //   document.cookie = "userId=ab584947-2318-4594-ab93-22e57e2f89f3";
-
-    //   this.userId = document.cookie.match(/userId=([^;]+)/)[1];
-
-    //   localStorage.setItem("userId", this.userId);
-
-    //   console.log(this.userId);
-    // },
 
     signIn: function () {
       if (this.user.id == "") {
@@ -497,7 +467,7 @@ let app = {
     async getNewsLists() {
       try {
         const res = await axios.get(
-          `https://event.setn.com/api/campaign/news/project/10268?limit=${this.newsLimts}`
+          `https://event.setn.com/api/campaign/news/project/10${this.newsIds}?limit=${this.newsLimts}`
         );
 
         this.newsLists = res.data;
@@ -565,7 +535,7 @@ let app = {
 
       try {
         const res = await axios.post(api, {
-          code: "2024CNY",
+          code: "2024cny",
           num: this.clickNum,
         });
 
@@ -594,7 +564,6 @@ let app = {
 
       try {
         if (!this.isRaining) {
-
           const res = await axios.get(api);
 
           this.$refs.popUp.style.display = "flex";
@@ -622,7 +591,7 @@ let app = {
             var day = dateObject.getDate().toString().padStart(2, "0");
 
             // 格式化日期
-            item.formattedDate = month + "-" + day;
+            item.formattedDate = month + "/" + day;
 
             return item;
           });
@@ -632,6 +601,8 @@ let app = {
           this.redPacketTotalScore = res.data.total;
 
           if (this.isMobile) this.$refs.gameBox.style.overflow = "visible";
+        } else {
+          // 遊戲進行中
         }
       } catch (error) {
         console.log(error);
@@ -673,12 +644,16 @@ let app = {
       const isEnougthQuota = await this.getRedPacketQuota();
 
       // console.log(isEnougthQuota);
-      if (!isEnougthQuota) {
+      if (isEnougthQuota) {
         this.isShowGameBox = true;
         this.isShowStartTime = true;
         this.isStartedRedPacket = true;
         this.isRaining = true;
-        this.showOverlay = false;
+        this.isShowOverlay = false;
+
+        this.$refs.recordBtn.style.cursor = "not-allowed";
+        this.$refs.recordBtn.style.backgroundColor = "gray";
+        this.$refs.recordBtn.style.border = "gray";
 
         this.$refs.gameBox.style.overflow = "hidden";
 
@@ -736,8 +711,14 @@ let app = {
       this.isGameOver = true;
       this.isShowRainList = false;
       this.isRaining = false;
-      this.showOverlay = true;
+      this.isShowOverlay = true;
       this.$refs.popUp.style.display = "flex";
+
+      this.$refs.recordBtn.style.cursor = "pointer";
+
+      this.$refs.recordBtn.style.backgroundColor = "#ba563f";
+      this.$refs.recordBtn.style.border = "2px solid #a13d29";
+
       this.$refs.textWrapper.scrollIntoView({ behavior: "smooth" });
 
       clearInterval(this.palyTime);
@@ -846,6 +827,7 @@ let app = {
         break;
       case currentPath.includes("/festival.html"):
         this.newsLimts = 12;
+        this.newsIds = 266;
         this.getNewsLists();
         break;
       default:

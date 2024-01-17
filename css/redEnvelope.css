@@ -49,7 +49,7 @@
   width: 100%;
 }
 
-.ad-text > span {
+.ad-text > p > span {
   color: #f6ef41;
   font-weight: 500;
   line-height: 150%;
@@ -163,7 +163,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 244, 203, 0.50);
+  background: rgba(255, 244, 203, 0.5);
 }
 
 .game_wrap .game_box.hide-overlay::before {
@@ -289,11 +289,6 @@
   /* margin-left: 2rem; */
 }
 
-.redPacketPopUp > .pop-up-container > .pop-up-wrapper > .ad-wrapper {
-  width: 95%;
-  max-width: 320px;
-}
-
 .redPacketPopUp > .pop-up-container > .popUpWrapperWinner {
   padding: 0;
 }
@@ -383,11 +378,8 @@
 
 .dontBtn {
   margin-bottom: 94px;
-  transition: all ease-in-out .3s;
+  transition: all ease-in-out 0.3s;
 }
-
-
-
 
 .game_wrap .game_tool_bar .tool_bar_left > div > span {
   padding: 4px 0px;
@@ -449,15 +441,18 @@
 }
 
 @media screen and (min-width: 768px) {
+  .ad-text > p > span {
+    font-size: 26px;
+  }
+
   .game_wrap .game_tool_bar .tool_bar_left,
   .game_wrap .game_tool_bar .tool_bar_right {
     display: flex;
   }
 
   .dontBtn:hover {
-    background: #FFD482;
+    background: #ffd482;
   }
-  
 
   .game_wrap .again-btn {
     padding: 4px 32px 8px 32px !important;

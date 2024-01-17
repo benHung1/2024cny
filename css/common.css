@@ -76,8 +76,7 @@ footer .copyrightbox {
   color: #3c3a36;
   line-height: 29px;
   display: block;
-  transition: all ease-in-out .3s;
-
+  transition: all ease-in-out 0.3s;
 }
 
 .menu-area > li:last-child > a {
@@ -96,7 +95,6 @@ footer .copyrightbox {
 .menu-area a.active {
   background-color: #f0d7c0;
 }
-
 
 .mb-active {
   background-color: #f0d7c0;
@@ -130,8 +128,6 @@ footer .copyrightbox {
 .mb-hover-svg {
   display: none;
 }
-
-
 
 .mb-login-wrapper {
   display: flex;
@@ -238,7 +234,7 @@ footer .copyrightbox {
   right: 16px;
   bottom: 44px;
   cursor: pointer;
-  z-index: 9;
+  z-index: 69;
 }
 
 .share_bt > ul {
@@ -256,13 +252,13 @@ footer .copyrightbox {
   margin: 15px 0 0 0;
 }
 
-.fb-share-1, .line-share-1, .top-1 {
+.fb-share-1,
+.line-share-1,
+.top-1 {
   display: none;
 }
 
-
 @media screen and (min-width: 768px) {
-
   .fb-share-btn:hover > .fb-share-1 {
     display: block;
   }
@@ -279,7 +275,7 @@ footer .copyrightbox {
     display: block;
   }
 
-  .toTop-wrapper:hover > .toTopBtn  {
+  .toTop-wrapper:hover > .toTopBtn {
     display: none;
   }
 
@@ -290,50 +286,48 @@ footer .copyrightbox {
   .mb-aTag:hover > .mb-hover-svg {
     display: block;
   }
-  
+
   .mb-aTag:hover > .mb-login-icon {
     display: none;
   }
-  
+
   .mb-aTag:hover > .logout-hover-svg {
     display: block;
   }
-  
+
   .mb-aTag:hover > .mb-logout-icon {
     display: none;
   }
-  
+
   .menu-area li:last-child a:hover {
     color: #ba563f;
     background: transparent;
   }
-  
+
   .menu-area a:hover {
     background-color: #f0d7c0;
   }
-  
+
   .mb-menu-area li:hover {
     background-color: #f0d7c0;
     border-radius: 100%;
   }
-  
-  
+
   .web-login-btn:hover .initial-svg {
     display: none;
   }
-  
+
   .web-login-btn:hover .hover-svg {
     display: flex;
   }
-  
+
   .web-login-btn:hover .logout-hover-svg {
     display: flex;
   }
-  
+
   .web-login-btn:hover .logout-icon {
     display: none;
   }
-
 
   .menu-block {
     padding: 16px;
@@ -389,6 +383,10 @@ footer .copyrightbox {
     justify-content: space-between;
     margin-top: 1rem;
     gap: 4px;
+  }
+
+  .menu-block > a {
+    display: inline-block;
   }
 }
 
