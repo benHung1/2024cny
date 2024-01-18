@@ -20,47 +20,12 @@ let app = {
         id: "",
         wins: [],
       },
-
       userId: null,
-      milestones: [
-        {
-          postsNum: 10,
-          isFinished: false,
-        },
-        {
-          postsNum: 30,
-          isFinished: false,
-        },
-        {
-          postsNum: 70,
-          isFinished: false,
-        },
-        {
-          postsNum: 100,
-          isFinished: false,
-        },
-      ],
-      topic: {
-        index: 0,
-        titles: [
-          "台灣之光",
-          "生活小10",
-          "10在健康",
-          "奇聞軼事",
-          "社會10事",
-          "政治要聞",
-          "暖心時光",
-          "追星10光",
-          "國際10勢",
-          "賺錢10紀",
-        ],
-      },
       news: [],
       rainList: [], // 用於儲存紅包
       redPacketArr: [],
       newsLists: [],
-      newsLimts: 6,
-      newsIds: 268,
+      newsFestivalLists: [],
       clickNum: 0,
       stopTime: 30,
       repeTime: 30,
@@ -131,94 +96,13 @@ let app = {
       ],
     };
   },
-  computed: {
-    progressBar() {
-      let percentage = this.score > 100 ? 100 : this.score;
-      return {
-        width: percentage + "%",
-      };
-    },
-  },
+
   methods: {
-    toggleDialog: function (name) {
-      this.dialog = this.dialog == name ? "" : name;
-    },
-
-    login() {
-      // 1. 成功存入cookie後取出 V
-      // 2. 塞到localStorage裡面 V
-      // 3. 點擊籤筒的時候 先 取儲存的userId & handleClickToday 看他今天點擊沒
-      // 4. 若已經點過，直接顯示他抽到的籤，反之則顯示籤筒z
-      // 抽籤筒、玩遊戲的時候會用到
-      document.cookie = "userId=ab584947-2318-4594-ab93-22e57e2f89f9";
-      this.userId = document.cookie.match(/userId=([^;]+)/)[1];
-      localStorage.setItem("userId", this.userId);
-      this.isLogin = !this.isLogin;
-      this.checkFortuneStickStatus();
-      if (!this.isLogin) localStorage.removeItem("userId");
-      console.log(this.userId, this.isLogin);
-    },
-
-    signIn: function () {
-      if (this.user.id == "") {
-        return false;
-      }
-
-      $.ajax({
-        type: "POST",
-        url: "https://event.setn.com/api/campaign/SpinToWin/2023setntime/signin",
-        dataType: "json",
-        crossDomain: true,
-        context: { vm: this },
-        data: { id: this.user.id },
-      })
-        .done(function (response) {
-          setCookie("2023setntime", response.id, 30, ".setn.com");
-          this.vm.user.id = response.id;
-          this.vm.getWins();
-          this.vm.getNews();
-        })
-        .fail(function (xhr, status) {
-          this.vm.user.id = "";
-          alert("沒有這個活動編號唷!");
-        });
-
-      this.toggleDialog("");
-      return false;
-    },
-    getWins: function () {
-      $.ajax({
-        type: "GET",
-        url: "https://event.setn.com/api/campaign/SpinToWin/2023setntime/wins",
-        dataType: "json",
-        crossDomain: true,
-        headers: {
-          Authorization: "Bearer " + this.user.id,
-        },
-        context: { vm: this },
-        data: {},
-      }).done(function (response) {
-        this.vm.user.wins = response.wins;
-        this.vm.wheel.quota = response.quota;
-      });
-    },
-    scoreUp: function (score) {
-      if (score >= 0) {
-        this.score = score;
-      } else {
-        this.score++;
-      }
-
-      this.milestones.forEach(function (e) {
-        if (this.score >= e.postsNum) {
-          e.isFinished = true;
-        }
-      }, this);
-    },
     start: function () {
       // console.log(this.luckyWheelQuota);
       if (!this.isLogin) {
-        alert("去登入啦");
+        window.location.href =
+          "https://event.setn.com/campaign/signin?code=2024cny";
         return false;
       }
 
@@ -297,25 +181,6 @@ let app = {
       } catch (error) {
         // console.log(error);
       }
-
-      // $.ajax({
-      //   type: "POST",
-      //   url: "https://event.setn.com/api/campaign/SpinToWin/2023setntime/spin",
-      //   dataType: "json",
-      //   crossDomain: true,
-      //   headers: {
-      //     Authorization: "Bearer " + this.user.id,
-      //   },
-      //   context: { vm: this },
-      //   data: {},
-      // }).done(function (response) {
-      //   this.vm.wheel.win = response.id;
-      //   this.vm.wheel.quota--;
-      //   document.querySelector(round.el).style.transform =
-      //     "rotate(" +
-      //     (round.step * round.min * 360 + 100 - response.id * 72) +
-      //     "deg)";
-      // });
     },
 
     async getTurnTableLog() {
@@ -336,35 +201,7 @@ let app = {
 
     settle: function () {
       this.wheel.isPlaying = false;
-      this.getWins();
       return true;
-    },
-    getNews() {
-      $.ajax({
-        type: "GET",
-        url: "assets/data/news/" + this.topic.index + ".json",
-        dataType: "json",
-        crossDomain: true,
-        headers: {
-          Authorization: "Bearer " + this.user.id,
-        },
-        context: { vm: this },
-        data: {},
-      }).done(function (response) {
-        this.vm.news = response;
-        // this.vm.scoreUp(response.score);
-        if (newsCarousel) {
-          newsCarousel.trigger("to.owl.carousel", 0);
-        }
-      });
-    },
-    activateTopic(index) {
-      let info = sliders.base.getInfo();
-      info.slideItems[info.index + 1].classList.add("img-click");
-
-      this.topic.index = index;
-      sliders.base.goTo(index);
-      this.getNews();
     },
 
     // 抽籤
@@ -376,8 +213,9 @@ let app = {
 
       if (userId === null) {
         // 回到登入頁面
-        alert("去登入拉");
-        return;
+        window.location.href =
+          "https://event.setn.com/campaign/signin?code=2024cny";
+        return false;
       } else {
         // localStorage有userId，代表已經登入
 
@@ -467,10 +305,22 @@ let app = {
     async getNewsLists() {
       try {
         const res = await axios.get(
-          `https://event.setn.com/api/campaign/news/project/10${this.newsIds}?limit=${this.newsLimts}`
+          `https://event.setn.com/api/campaign/news/project/10268?limit=6`
         );
 
         this.newsLists = res.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async getFestivalNewsLists() {
+      try {
+        const res = await axios.get(
+          `https://event.setn.com/api/campaign/news/project/10266?limit=12`
+        );
+
+        this.newsFestivalLists = res.data;
       } catch (error) {
         console.log(error);
       }
@@ -637,7 +487,8 @@ let app = {
 
     async startGame() {
       if (this.isLogin === false) {
-        alert("去登入啦");
+        window.location.href =
+          "https://event.setn.com/campaign/signin?code=2024cny";
         return false;
       }
 
@@ -776,46 +627,70 @@ let app = {
       this.getTurnTableLog();
       this.$refs.popUp.style.display = "flex";
       this.$refs.popUpWrapperRecord.style.display = "flex";
-
       this.$refs.popUpWrapper.style.display = "none";
       this.$refs.popUpNotWinWrapper.style.display = "none";
       this.$refs.popUpWrapperWinner.style.display = "none";
-
       this.$refs.textWrapper.scrollIntoView({ behavior: "smooth" });
+    },
+
+    login() {
+      if (this.isLogin) {
+        // 這裡是登出
+        window.location.href =
+          "https://event.setn.com/campaign/signOut?code=2024cny";
+
+        this.isLogin = false;
+
+        localStorage.removeItem("userId");
+
+        delete axios.defaults.headers.common["Authorization"];
+      } else {
+
+        window.location.href = 
+        "https://event.setn.com/campaign/signin?code=2024cny";
+
+        this.isLogin = true;
+
+        localStorage.setItem("userId", `${this.userId}`);
+  
+        axios.defaults.headers.common["Authorization"] = `Bearer ${this.userId}`;
+   
+      }
     },
   },
   created() {
-    this.user.id = getCookie("2023setntime");
 
     this.checkScreenWidth();
+    
+    // this.checkFortuneStickStatus();
 
     window.addEventListener("resize", this.checkScreenWidth, { passive: true });
-
-    if (this.user.id) {
-      this.getWins();
-    }
 
     if (localStorage.getItem("arr")) {
       this.setupMidnightTimer();
     }
 
-    this.checkFortuneStickStatus();
   },
   mounted() {
-    if (localStorage.getItem("userId")) this.isLogin = true;
+    // 進頁面先判定使用者是否登入，如果有setn_event_code代表已經登入成功
+
+    if (document?.cookie?.match(/setn_event=([^;]+)/)) {
+      // 這裡是成功登入後
+
+      this.userId = document?.cookie?.match(/setn_event=([^;]+)/)[1];
+
+      localStorage.setItem("userId", `${this.userId}`);
+
+      this.isLogin = true;
+
+      this.checkFortuneStickStatus();
+
+      axios.defaults.headers.common["Authorization"] = `Bearer ${this.userId}`;
+    }
 
     const currentPath = window.location.pathname;
 
     window.addEventListener("scroll", this.handleScroll, { passive: true });
-
-    // 進頁面先判定使用者是否登入，如果有setn_event_code代表已經登入成功
-    // if(document?.cookie?.match(/setn_event_code=([^;]+)/)) {
-    //   this.user.id =  document?.cookie?.match(/setn_event_code=([^;]+)/)
-    // }
-
-    axios.defaults.headers.common[
-      "Authorization"
-    ] = `Bearer ab584947-2318-4594-ab93-22e57e2f89f0`;
 
     switch (true) {
       case currentPath.includes("/redEnvelope.html"):
@@ -826,9 +701,7 @@ let app = {
         this.getTurnTableLog();
         break;
       case currentPath.includes("/festival.html"):
-        this.newsLimts = 12;
-        this.newsIds = 266;
-        this.getNewsLists();
+        this.getFestivalNewsLists();
         break;
       default:
         break;
@@ -842,114 +715,6 @@ let app = {
   },
 };
 
-Vue.component("news-box", {
-  props: {
-    news: Array,
-  },
-  template: `<div class="Abox" id="newsBox">
-        <ul class="Abox-content owl-carousel">
-            <a href="#" class="newsbox item" target="_blank" v-for="(item, i) in news" @click.prevent="openSETNews(i)">
-                <li :class="{read: item.isRead}">
-                    <img :src="item.image" alt="">
-                    <p class="news-title">{{item.shortSlug}}</p>
-                    <div class="news-content">{{item.summary}}</div>
-                </li>
-            </a>
-        </ul>
-    </div>`,
-  data() {
-    return {};
-  },
-  methods: {
-    initCarousel: function () {
-      newsCarousel = $(".owl-carousel").owlCarousel({
-        loop: true,
-        margin: 10,
-        responsiveClass: true,
-        loop: true,
-        nav: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        responsive: {
-          0: {
-            items: 1,
-            autoplayTimeout: 7000,
-            dots: false,
-          },
-          600: {
-            items: 2,
-            autoplayTimeout: 6000,
-            dots: false,
-          },
-          1000: {
-            items: 3,
-            nav: false,
-          },
-        },
-      });
-    },
-    openSETNews: function (i) {
-      let newsId = this.news[i].newsID;
-      window.open("https://www.setn.com/News.aspx?NewsID=" + newsId);
-      return true;
 
-      $.ajax({
-        type: "POST",
-        url: "https://event.setn.com/api/campaign/SpinToWin/2023setntime/openSETNews",
-        dataType: "json",
-        crossDomain: true,
-        headers: {
-          Authorization: "Bearer " + getCookie("2023setntime"),
-        },
-        context: { vm: this },
-        data: { newsId: newsId },
-      }).done(function (response) {
-        if (this.vm.news[i].isRead == true) {
-          return false;
-        }
-
-        this.vm.$emit("score-up");
-        this.vm.news[i].isRead = true;
-      });
-    },
-  },
-  created() {
-    this.$emit("get-news");
-  },
-  mounted() {},
-  updated() {
-    this.initCarousel();
-    this.$nextTick(function () {});
-  },
-});
-
-function setCookie(c_name, value, expiredays, domain) {
-  var _exdate = new Date();
-  _exdate.setDate(_exdate.getDate() + expiredays);
-  document.cookie =
-    c_name +
-    "=" +
-    escape(value) +
-    ";domain=" +
-    domain +
-    ";path=/" +
-    (expiredays == null ? "" : ";expires=" + _exdate.toGMTString());
-}
-
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(";");
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
 
 new Vue(app);
