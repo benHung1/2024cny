@@ -26,7 +26,7 @@
     />
     <meta
       property="og:image"
-      content="https://acts.setn.com/event/2024cny/imgs/FbSharepicture1200×630.png"
+      content="https://acts.setn.com/event/2024cny/imgs/FbSharepicture.png"
     />
     <meta property="og:url" content="https://acts.setn.com/event/2024cny" />
     <link rel="shortcut icon" href="./favicon.ico" />
@@ -209,11 +209,7 @@
           <li><a href="specialShow.html">過年特別節目</a></li>
           <li><a href="festival.html">春節連假攻略</a></li>
           <li class="loginWrapper">
-            <a
-              @click="login"
-              href="https://event.setn.com/campaign/signin?code=2024cny"
-              class="web-login-btn"
-            >
+            <a @click="login" href="#" class="web-login-btn">
               <img
                 src="./imgs/avatar.png"
                 alt="avatar"
@@ -273,11 +269,7 @@
             />
           </a>
 
-          <a
-            @click="login"
-            href="https://event.setn.com/campaign/signin?code=2024cny"
-            class="mb-aTag"
-          >
+          <a @click="login" href="#" class="mb-aTag">
             <img
               src="./imgs/avatar.png"
               alt="avatar"
@@ -462,71 +454,76 @@
           </div>
 
           <div class="games-container">
-            <div class="games-wrapper">
-              <span>我要玩轉盤</span>
+            <a href="./spinToWin.html">
+              <div class="games-wrapper">
+                <span>我要玩轉盤</span>
 
-              <img
-                class="coin"
-                src="./imgs/coin.png"
-                alt="coin"
-                srcset="./imgs/coin@2x.png 2x, ./imgs/coin@3x.png 3x"
-              />
-
-              <div class="games-img">
                 <img
-                  src="./imgs/luckywheel-prize.png"
-                  alt="wheel"
-                  srcset="
-                    ./imgs/luckywheel-prize@2x.png 2x,
-                    ./imgs/luckywheel-prize@3x.png 3x
-                  "
+                  class="coin"
+                  src="./imgs/coin.png"
+                  alt="coin"
+                  srcset="./imgs/coin@2x.png 2x, ./imgs/coin@3x.png 3x"
                 />
+
+                <div class="games-img">
+                  <img
+                    src="./imgs/luckywheel-prize.png"
+                    alt="wheel"
+                    srcset="
+                      ./imgs/luckywheel-prize@2x.png 2x,
+                      ./imgs/luckywheel-prize@3x.png 3x
+                    "
+                  />
+                </div>
               </div>
-            </div>
+            </a>
 
-            <div class="games-wrapper">
-              <span>我要搶紅包</span>
+            <a href="./redEnvelope.html">
+              <div class="games-wrapper">
+                <span>我要搶紅包</span>
 
-              <img
-                class="coin coin2"
-                src="./imgs/coin2.png"
-                alt="coin2"
-                srcset="./imgs/coin2@2x.png 2x, ./imgs/coin2@3x.png 3x"
-              />
-
-              <div class="games-img">
                 <img
-                  src="./imgs/redpackets.png"
-                  alt="redPacket"
-                  srcset="
-                    ./imgs/redpackets@2x.png 2x,
-                    ./imgs/redpackets@3x.png 3x
-                  "
+                  class="coin coin2"
+                  src="./imgs/coin2.png"
+                  alt="coin2"
+                  srcset="./imgs/coin2@2x.png 2x, ./imgs/coin2@3x.png 3x"
                 />
+
+                <div class="games-img">
+                  <img
+                    src="./imgs/redpackets.png"
+                    alt="redPacket"
+                    srcset="
+                      ./imgs/redpackets@2x.png 2x,
+                      ./imgs/redpackets@3x.png 3x
+                    "
+                  />
+                </div>
               </div>
-            </div>
+            </a>
+            <a href="./drawLots.html">
+              <div class="games-wrapper">
+                <span>我要抽運勢</span>
 
-            <div class="games-wrapper">
-              <span>我要抽運勢</span>
-
-              <img
-                class="coin coin3"
-                src="./imgs/coin3.png"
-                alt="coin3"
-                srcset="./imgs/coin3@2x.png 2x, ./imgs/coin3@3x.png 3x"
-              />
-
-              <div class="games-img">
                 <img
-                  src="./imgs/fortunestickbucket.png"
-                  alt="boxex"
-                  srcset="
-                    ./imgs/fortunestickbucket@2x.png 2x,
-                    ./imgs/fortunestickbucket@3x.png 3x
-                  "
+                  class="coin coin3"
+                  src="./imgs/coin3.png"
+                  alt="coin3"
+                  srcset="./imgs/coin3@2x.png 2x, ./imgs/coin3@3x.png 3x"
                 />
+
+                <div class="games-img">
+                  <img
+                    src="./imgs/fortunestickbucket.png"
+                    alt="boxex"
+                    srcset="
+                      ./imgs/fortunestickbucket@2x.png 2x,
+                      ./imgs/fortunestickbucket@3x.png 3x
+                    "
+                  />
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         </section>
 
@@ -572,17 +569,21 @@
             "
           />
           <div class="app-group">
-            <img
-              src="./imgs/android.png"
-              alt="appdownload"
-              srcset="./imgs/android@3x.png 2x, ./imgs/android@3x.png 3x"
-            />
+            <a href="http://goo.gl/cIwgXT" target="_blank">
+              <img
+                src="./imgs/android.png"
+                alt="appdownload"
+                srcset="./imgs/android@3x.png 2x, ./imgs/android@3x.png 3x"
+              />
+            </a>
 
-            <img
-              src="./imgs/ios.png"
-              alt="appdownload"
-              srcset="./imgs/ios@2x.png 2x, ./imgs/ios@3x.png 3x"
-            />
+            <a href="http://goo.gl/7OTK52" target="_blank">
+              <img
+                src="./imgs/ios.png"
+                alt="appdownload"
+                srcset="./imgs/ios@2x.png 2x, ./imgs/ios@3x.png 3x"
+              />
+            </a>
           </div>
           <img
             src="./imgs/SETNLINEftiend.png"
@@ -606,18 +607,25 @@
                 ./imgs/titlesubtitle@3x.png 3x
               "
             />
-            <img
-              class="mb-app-img"
-              src="./imgs/APPandroid.png"
-              alt="line"
-              srcset="./imgs/APPandroid@2x.png 2x, ./imgs/APPandroid@3x.png 3x"
-            />
-            <img
-              class="sec-mb-app-img"
-              src="./imgs/APPios.png"
-              alt="line"
-              srcset="./imgs/APPios@2x.png 2x, ./imgs/APPios@3x.png 3x"
-            />
+            <a href="http://goo.gl/7OTK52" target="_blank">
+              <img
+                class="mb-app-img"
+                src="./imgs/APPandroid.png"
+                alt="line"
+                srcset="
+                  ./imgs/APPandroid@2x.png 2x,
+                  ./imgs/APPandroid@3x.png 3x
+                "
+              />
+            </a>
+            <a href="http://goo.gl/7OTK52" target="_blank">
+              <img
+                class="sec-mb-app-img"
+                src="./imgs/APPios.png"
+                alt="line"
+                srcset="./imgs/APPios@2x.png 2x, ./imgs/APPios@3x.png 3x"
+              />
+            </a>
           </div>
 
           <div class="mb-app-dowload-wrapper-bottom">

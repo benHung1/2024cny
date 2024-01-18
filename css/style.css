@@ -115,7 +115,7 @@
   flex-wrap: wrap;
 }
 
-.app-group > img {
+.app-group > a > img {
   max-width: 435px;
   transition: all ease-in-out 0.3s;
 }
@@ -522,7 +522,7 @@ footer {
     cursor: pointer;
   }
 
-  .app-group > img:hover {
+  .app-group > a > img:hover {
     transform: translateY(-10px);
     cursor: pointer;
   }
