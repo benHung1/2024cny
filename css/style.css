@@ -300,7 +300,6 @@ footer {
   width: 56px;
   position: fixed;
   right: 16px;
-  bottom: 44px;
   cursor: pointer;
   z-index: 9;
 }
