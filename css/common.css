@@ -235,6 +235,7 @@ footer .copyrightbox {
   bottom: 44px;
   cursor: pointer;
   z-index: 69;
+  background: red;
 }
 
 .share_bt > ul {
@@ -359,6 +360,7 @@ footer .copyrightbox {
     right: 16px;
     top: 130px;
     z-index: 19;
+    background-color: green;
   }
 
   .textWrapper {
