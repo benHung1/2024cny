@@ -232,7 +232,7 @@ footer .copyrightbox {
   width: 56px;
   position: fixed;
   right: 16px;
-  bottom: 44px;
+  top: 85%;
   cursor: pointer;
   z-index: 69;
   background: red;
