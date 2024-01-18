@@ -690,7 +690,7 @@ let app = {
 
     const currentPath = window.location.pathname;
 
-    window.addEventListener("scroll", this.handleScroll, { passive: true });
+    // window.addEventListener("scroll", this.handleScroll, { passive: true });
 
     switch (true) {
       case currentPath.includes("/redEnvelope.html"):
@@ -710,7 +710,7 @@ let app = {
   updated() {},
 
   beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
+    // window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("resize", this.checkScreenWidth);
   },
 };
