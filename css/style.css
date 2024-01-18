@@ -278,11 +278,7 @@ ol > li {
   z-index: 99;
 }
 
-.share_bt > ul {
-  position: fixed;
-  right: 16px;
-  bottom: 112px;
-}
+
 
 .share_bt li {
   width: 56px;
