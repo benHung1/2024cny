@@ -296,13 +296,7 @@ footer {
   position: relative;
 }
 
-.toTop {
-  width: 56px;
-  position: fixed;
-  right: 16px;
-  cursor: pointer;
-  z-index: 9;
-}
+
 
 .card-content {
   padding: 32px 16px 0 16px;

@@ -235,13 +235,12 @@ footer .copyrightbox {
   top: 85%;
   cursor: pointer;
   z-index: 69;
-  background: red;
 }
 
 .share_bt > ul {
   position: fixed;
   right: 16px;
-  bottom: 112px;
+  top: 65%;
   z-index: 19;
 }
 
